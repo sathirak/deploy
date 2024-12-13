@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Stats</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .stat { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>System Statistics</h1>
+    <p>CPU Usage: {{printf "%.2f" .CPUUsage}}%</p>
+    <p>Memory Usage: {{printf "%.2f" (div (float64 .MemoryUsed) (float64 .MemoryTotal))}}%</p>
+    <p>Disk Usage: {{printf "%.2f" (div (float64 (sub .DiskTotal .DiskFree)) (float64 .DiskTotal))}}%</p>
+    <p>Go Version: {{.GoVersion}}</p>
+    <p>Number of CPUs: {{.NumCPU}}</p>
+</body>
+</html>
